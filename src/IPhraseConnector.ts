@@ -1,0 +1,3 @@
+interface IPhraseConnector {
+    getPhrase(): string;
+}
