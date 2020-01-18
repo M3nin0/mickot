@@ -1,5 +1,7 @@
-import PhraseFile from "./PhraseFile";
-import Telegraf from "../types/telegraf";
+import { buildBot } from "ts-telegraf-decorators";
+import { MickoteController } from "./controller/MickoteController";
 
-const bot = new Telegraf(process.env.BOT_TOKEN || "");
-
+buildBot({
+    token: process.env.BOT_TOKEN,
+    controllers: [MickoteController],
+}).startPolling()

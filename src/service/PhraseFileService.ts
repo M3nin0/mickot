@@ -1,9 +1,11 @@
 import * as fs from "fs";
 
-class PhraseFile implements IPhraseConnector {
+import IPhraseConnector from "./IPhraseConnector";
+
+class PhraseFileService implements IPhraseConnector {
     private _jsonFile: string;
     private _jsonObject: any;
-    
+
     constructor(jsonFile: string) {
         this._jsonFile = jsonFile;
         this._jsonObject = null;
@@ -22,4 +24,4 @@ class PhraseFile implements IPhraseConnector {
     }
 };
 
-export default PhraseFile;
+export default PhraseFileService;
