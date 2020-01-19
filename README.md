@@ -1,6 +1,6 @@
 # mickot :zap:
 
-`mickot` é a materialização de um personagem que para todo assunto, possue frases prontas e corretas.
+`mickot` é a materialização de um personagem que para todo assunto possui frases prontas e corretas.
 
 ## Utilização
 
