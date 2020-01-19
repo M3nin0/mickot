@@ -11,7 +11,7 @@ Para fazer a utilização do mickot, faça a definição das seguintes variávei
 
 ## Sobre os dados
 
-Os dados consumidos pelo `mickot` são estruturados em um formato json, que possui o seguinte padrão:
+Os dados consumidos pelo `mickot` são armazenados em um json, que possui a seguinte estrutura:
 
 ```json
 {
