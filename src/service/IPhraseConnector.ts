@@ -1,4 +1,6 @@
 interface IPhraseConnector {
+    jsonObject: any;
+
     getPhrase(): string;
 }
 

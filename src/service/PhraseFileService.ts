@@ -1,26 +1,25 @@
 import * as fs from "fs";
+import { Service } from "typedi";
 
 import IPhraseConnector from "./IPhraseConnector";
+import { String } from 'typescript-string-operations';
 
+@Service()
 class PhraseFileService implements IPhraseConnector {
-    private _jsonFile: string;
-    private _jsonObject: any;
-
-    constructor(jsonFile: string) {
-        this._jsonFile = jsonFile;
-        this._jsonObject = null;
-    }
+    jsonObject: any = null;
 
     private generateJsonObject() {
-        if (this._jsonObject == null)
-            this._jsonObject = JSON.parse(fs.readFileSync(this._jsonFile).toString());
+        if (this.jsonObject == null)
+            this.jsonObject = JSON.parse(fs.readFileSync(process.env.DATA_FILE || "").toString());
     }
 
     getPhrase(): string {
         this.generateJsonObject();
 
-        const phraseIndex = Math.floor(Math.random() * this._jsonObject.mickotePhrases.length);
-        return this._jsonObject.mickotePhrases[phraseIndex];
+        const phraseIndex = Math.floor(Math.random() * this.jsonObject.mickotePhrases.length);
+        const phraseObject = this.jsonObject.mickotePhrases[phraseIndex];
+
+        return String.Format('"{phrase}" - {author}', phraseObject);
     }
 };
 
